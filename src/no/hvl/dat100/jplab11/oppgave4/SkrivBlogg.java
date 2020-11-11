@@ -18,6 +18,7 @@ public class SkrivBlogg {
 			skriver = new PrintWriter(mappe + filnavn);
 			skriver.print(samling.toString());
 			skriver.close();
+			skriven = true;
 		} catch (FileNotFoundException e) {
 			mld = "Katalogen finnes ikkje.";
 			skriven = false;
@@ -27,5 +28,23 @@ public class SkrivBlogg {
 		//}
 		System.out.print(mld);
 		return skriven;
+		
+		//Alternativ løsning 
+		
+		/*  
+		boolean skriveren = false;
+        File output = new File(mappe + filnavn);              // opprett filen et sted med et navn
+        try {
+            FileWriter writer = new FileWriter(output);       // funksjon/metode som skriver ting i filen
+            writer.write(samling.toString());                 // skriv innholdet fra samling til filen
+            writer.close();                                   // lukke writer etter den er ferdig å skrive til filen
+            skriveren = true;                                 // sett til true når writer har skrevet til filen
+        } catch (IOException e) {                             //throw exception hvis noe feiler
+            e.printStackTrace();
+            System.out.println("FILE PATH NOT FOUND");
+        }
+
+        return skriveren;*/                                     // returner true hvis filen ble opprettet og skrevet inn med innhold
+		
 	}
 }
